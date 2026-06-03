@@ -1,0 +1,15 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "Alyvo Edu PostgreSQL",
+      "Group": "Servers",
+      "Host": "alovy_edu_database_postgresql",
+      "Port": 5432,
+      "MaintenanceDB": "alovy_edu_develop",
+      "Username": "testuser",
+      "SSLMode": "prefer",
+      "PasswordExecCommand": "echo 'testpassword'",
+      "PasswordExecExpiration": 0
+    }
+  }
+}

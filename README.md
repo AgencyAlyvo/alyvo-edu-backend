@@ -1,4 +1,4 @@
-# Alyvo ProspectResearch - Backend
+# Alyvo Edu - Backend
 
 ## Cursor Rules
 
@@ -26,8 +26,8 @@ For AI-assisted work, use the project rules stored in:
 
 ## API
 
-- Production : https://api.prospectresearch.alyvo.fr
-- Staging : https://staging.api.prospectresearch.alyvo.fr
+- Production : https://api.edu.alyvo.fr
+- Staging : https://staging.api.edu.alyvo.fr
 
 <br /><br />
 
@@ -63,7 +63,7 @@ git commit --allow-empty -m "chore: release 1.1.0-rc.0" -m "Release-As: 1.1.0-rc
 1. Clone the project repository using the following commands :
 
 ```bash
-git clone git@github.com:AgencyAlyvo/alyvo-prospectresearch-backend.git
+git clone git@github.com:AgencyAlyvo/alyvo-edu-backend.git
 ```
 
 2. Steps by Platform :
