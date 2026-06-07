@@ -8,4 +8,15 @@ export interface ApiDefinition {
     signUp: typeof routes['auth.sign_up']
     logout: typeof routes['auth.logout']
   }
+  managedAccounts: {
+    index: typeof routes['managed_accounts.index']
+    store: typeof routes['managed_accounts.store']
+    show: typeof routes['managed_accounts.show']
+    update: typeof routes['managed_accounts.update']
+    destroy: typeof routes['managed_accounts.destroy']
+  }
+  software: {
+    updaterManifest: typeof routes['software.updater_manifest']
+    download: typeof routes['software.download']
+  }
 }

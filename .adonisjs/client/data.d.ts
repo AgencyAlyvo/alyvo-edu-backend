@@ -6,10 +6,15 @@
 /// <reference path="./manifest.d.ts" />
 import type { InferData, InferVariants } from '@adonisjs/core/types/transformers'
 import type AuthTokenTransformer from '#transformers/auth_token_transformer'
+import type ManagedAccountTransformer from '#transformers/managed_account_transformer'
 
 export namespace Data {
   export type AuthToken = InferData<AuthTokenTransformer>
   export namespace AuthToken {
     export type Variants = InferVariants<AuthTokenTransformer>
+  }
+  export type ManagedAccount = InferData<ManagedAccountTransformer>
+  export namespace ManagedAccount {
+    export type Variants = InferVariants<ManagedAccountTransformer>
   }
 }

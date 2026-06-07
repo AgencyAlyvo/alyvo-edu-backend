@@ -9,8 +9,9 @@ import './routes/auth.js'
 
 /**
  * Routes métiers
- * (aucune route metier pour le shell minimal — a ajouter ici)
  */
+import './routes/accounts.js'
+import './routes/software.js'
 
 /**
  * Cette route est utilisée pour tester le fonctionnement de base de l'application.

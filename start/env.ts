@@ -30,4 +30,13 @@ export default await Env.create(new URL('../', import.meta.url), {
   SESSION_DRIVER: Env.schema.enum(['cookie', 'database', 'memory'] as const),
   API_USER_TOKEN_EXPIRATION: Env.schema.string(),
   API_USER_TOKEN_SECRET_LENGTH: Env.schema.number(),
+  DRIVE_DISK: Env.schema.enum(['s3'] as const),
+  S3_BUCKET_ACCESS_KEY_ID: Env.schema.string(),
+  S3_BUCKET_SECRET_ACCESS_KEY: Env.schema.string(),
+  S3_BUCKET_NAME: Env.schema.string(),
+  S3_BUCKET_REGION: Env.schema.string(),
+  S3_BUCKET_ENDPOINT: Env.schema.string(),
+  S3_BUCKET_VISIBILITY: Env.schema.enum(['public', 'private'] as const),
+  S3_BUCKET_FORCE_PATH_STYLE: Env.schema.boolean(),
+  S3_SOFTWARE_PREFIX: Env.schema.string.optional(),
 })

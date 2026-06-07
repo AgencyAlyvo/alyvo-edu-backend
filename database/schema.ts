@@ -32,6 +32,53 @@ export class AuthAccessTokenSchema extends BaseModel {
   declare updatedAt: DateTime | null
 }
 
+export class ManagedAccountSchema extends BaseModel {
+  static $columns = ['adminUserId', 'birthday', 'createdAt', 'cursorAccountActivated', 'cursorAccountActivatedAt', 'cursorPassword', 'cursorSheeridRequestSent', 'cursorSheeridRequestSentAt', 'id', 'outlookEmail', 'outlookEmailPassword', 'outlookFirstName', 'outlookLastName', 'schoolEmail', 'schoolEmailActivated', 'schoolEmailActivatedAt', 'schoolEmailPassword', 'schoolRequestSent', 'schoolRequestSentAt', 'studentId', 'updatedAt'] as const
+  $columns = ManagedAccountSchema.$columns
+  @column()
+  declare adminUserId: number
+  @column.date()
+  declare birthday: DateTime | null
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+  @column()
+  declare cursorAccountActivated: boolean
+  @column.dateTime()
+  declare cursorAccountActivatedAt: DateTime | null
+  @column()
+  declare cursorPassword: string | null
+  @column()
+  declare cursorSheeridRequestSent: boolean
+  @column.dateTime()
+  declare cursorSheeridRequestSentAt: DateTime | null
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare outlookEmail: string | null
+  @column()
+  declare outlookEmailPassword: string | null
+  @column()
+  declare outlookFirstName: string | null
+  @column()
+  declare outlookLastName: string | null
+  @column()
+  declare schoolEmail: string | null
+  @column()
+  declare schoolEmailActivated: boolean
+  @column.dateTime()
+  declare schoolEmailActivatedAt: DateTime | null
+  @column()
+  declare schoolEmailPassword: string | null
+  @column()
+  declare schoolRequestSent: boolean
+  @column.dateTime()
+  declare schoolRequestSentAt: DateTime | null
+  @column()
+  declare studentId: string | null
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
 export class UserSchema extends BaseModel {
   static $columns = ['createdAt', 'email', 'id', 'password', 'updatedAt'] as const
   $columns = UserSchema.$columns

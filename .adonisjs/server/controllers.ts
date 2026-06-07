@@ -6,4 +6,6 @@
 export const controllers = {
   Auth: () => import('#controllers/auth_controller'),
   Health: () => import('#controllers/health_controller'),
+  ManagedAccounts: () => import('#controllers/managed_accounts_controller'),
+  Software: () => import('#controllers/software_controller'),
 }

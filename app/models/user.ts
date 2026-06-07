@@ -1,11 +1,17 @@
 import { UserSchema } from '#database/schema'
+import ManagedAccount from '#models/managed_account'
 import { AccessToken, DbAccessTokensProvider } from '@adonisjs/auth/access_tokens'
 import env from '#start/env'
 import { compose } from '@adonisjs/core/helpers'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
 import hash from '@adonisjs/core/services/hash'
+import { hasMany } from '@adonisjs/lucid/orm'
+import type { HasMany } from '@adonisjs/lucid/types/relations'
 
 export default class User extends compose(UserSchema, withAuthFinder(hash)) {
+  @hasMany(() => ManagedAccount, { foreignKey: 'adminUserId' })
+  declare managedAccounts: HasMany<typeof ManagedAccount>
+
   /**
    * The access token provider for the user model.
    * This provider is used to generate and validate access tokens for the user.

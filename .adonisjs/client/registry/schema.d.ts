@@ -55,4 +55,88 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/auth_controller').default['logout']>>>
     }
   }
+  'managed_accounts.index': {
+    methods: ["GET","HEAD"]
+    pattern: '/accounts'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: ExtractQueryForGet<InferInput<(typeof import('#validators/managed_account_validator').listManagedAccountsValidator)>>
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['index']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['index']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
+  'managed_accounts.store': {
+    methods: ["POST"]
+    pattern: '/accounts'
+    types: {
+      body: ExtractBody<InferInput<(typeof import('#validators/managed_account_validator').createManagedAccountValidator)>>
+      paramsTuple: []
+      params: {}
+      query: ExtractQuery<InferInput<(typeof import('#validators/managed_account_validator').createManagedAccountValidator)>>
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['store']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['store']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
+  'managed_accounts.show': {
+    methods: ["GET","HEAD"]
+    pattern: '/accounts/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['show']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['show']>>>
+    }
+  }
+  'managed_accounts.update': {
+    methods: ["PATCH"]
+    pattern: '/accounts/:id'
+    types: {
+      body: ExtractBody<InferInput<(typeof import('#validators/managed_account_validator').updateManagedAccountValidator)>>
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: ExtractQuery<InferInput<(typeof import('#validators/managed_account_validator').updateManagedAccountValidator)>>
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['update']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['update']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
+  'managed_accounts.destroy': {
+    methods: ["DELETE"]
+    pattern: '/accounts/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['destroy']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['destroy']>>>
+    }
+  }
+  'software.updater_manifest': {
+    methods: ["GET","HEAD"]
+    pattern: '/software/updater/:target/:arch/:currentVersion'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue, ParamValue, ParamValue]
+      params: { target: ParamValue; arch: ParamValue; currentVersion: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/software_controller').default['updaterManifest']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/software_controller').default['updaterManifest']>>>
+    }
+  }
+  'software.download': {
+    methods: ["GET","HEAD"]
+    pattern: '/software/download/:nameBundle'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { nameBundle: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/software_controller').default['download']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/software_controller').default['download']>>>
+    }
+  }
 }
