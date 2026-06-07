@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/AgencyAlyvo/alyvo-edu-backend/compare/v1.0.1...v1.0.2) (2026-06-07)
+
+
+### Bug Fixes
+
+* fixed var env for db postgres ([c745b92](https://github.com/AgencyAlyvo/alyvo-edu-backend/commit/c745b92547e868134651cac31c19bc05a5688cb2))
+
 ## [1.0.1](https://github.com/AgencyAlyvo/alyvo-edu-backend/compare/v1.0.0...v1.0.1) (2026-06-07)
 
 
