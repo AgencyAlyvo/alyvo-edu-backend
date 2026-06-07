@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/AgencyAlyvo/alyvo-edu-backend/compare/v1.0.2...v1.0.3) (2026-06-07)
+
+
+### Bug Fixes
+
+* fixed var env for supabase ([04bdee4](https://github.com/AgencyAlyvo/alyvo-edu-backend/commit/04bdee4b082bee784653445c5de374670e523f90))
+
 ## [1.0.2](https://github.com/AgencyAlyvo/alyvo-edu-backend/compare/v1.0.1...v1.0.2) (2026-06-07)
 
 
