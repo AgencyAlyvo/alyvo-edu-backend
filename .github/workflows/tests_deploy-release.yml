@@ -33,9 +33,9 @@ jobs:
         run: npm run test:all
 
       - name: Deploy PR (main) for new Release
-        uses: google-github-actions/release-please-action@v4
+        uses: googleapis/release-please-action@v5
         with:
           release-type: node
           target-branch: main
           config-file: 'release-please-config.json'
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.PAT_ALYVO }}
