@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/AgencyAlyvo/alyvo-edu-backend/compare/v1.0.3...v1.0.4) (2026-06-07)
+
+
+### Bug Fixes
+
+* fixed cors ([b3a4f3b](https://github.com/AgencyAlyvo/alyvo-edu-backend/commit/b3a4f3b167ef7e194dc29b89cf43839a3ebf69a6))
+
 ## [1.0.3](https://github.com/AgencyAlyvo/alyvo-edu-backend/compare/v1.0.2...v1.0.3) (2026-06-07)
 
 
