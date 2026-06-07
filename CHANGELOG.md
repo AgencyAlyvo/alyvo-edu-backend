@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/AgencyAlyvo/alyvo-edu-backend/compare/v1.0.0...v1.0.1) (2026-06-07)
+
+
+### Bug Fixes
+
+* fixed ansible playbook ([b13d179](https://github.com/AgencyAlyvo/alyvo-edu-backend/commit/b13d179f853788de6c1701e615548911364f8040))
+
 ## 1.0.0 (2026-06-07)
 
 
