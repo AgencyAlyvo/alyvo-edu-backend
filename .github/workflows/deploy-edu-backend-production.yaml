@@ -80,6 +80,9 @@ jobs:
           ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts
 
       - name: Create Ansible variables
+        env:
+          DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+          DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
         run: |
           jq -n \
             --arg ansible_password "$VPS_PASSWORD" \
@@ -90,6 +93,8 @@ jobs:
             --arg app_dir "$APP_DIR" \
             --arg app_port "$APP_PORT" \
             --arg backend_image "$BACKEND_IMAGE" \
+            --arg docker_hub_username "$DOCKER_HUB_USERNAME" \
+            --arg docker_hub_password "$DOCKER_HUB_ACCESS_TOKEN" \
             '{
               ansible_password: $ansible_password,
               ansible_become_password: $ansible_become_password,
@@ -98,7 +103,9 @@ jobs:
               app_name: $app_name,
               app_dir: $app_dir,
               app_port: ($app_port | tonumber),
-              backend_image: $backend_image
+              backend_image: $backend_image,
+              docker_hub_username: $docker_hub_username,
+              docker_hub_password: $docker_hub_password
             }' > ansible/extra-vars-edu-backend.json
 
       - name: Run Ansible deployment

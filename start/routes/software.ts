@@ -5,10 +5,7 @@ const SoftwareController = () => import('#controllers/software_controller')
 /**
  * Manifeste de mise a jour consomme par Tauri plugin-updater.
  */
-router.get('/software/updater/:target/:arch/:currentVersion', [
-  SoftwareController,
-  'updaterManifest',
-])
+router.get('/software/updater/:target/:arch/:currentVersion', [SoftwareController, 'updaterManifest'])
 
 /**
  * Telechargement des binaires Alyvo Edu (MSI, AppImage, tar.gz, etc.).
