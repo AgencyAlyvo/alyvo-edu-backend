@@ -39,4 +39,5 @@ export default await Env.create(new URL('../', import.meta.url), {
   S3_BUCKET_VISIBILITY: Env.schema.enum(['public', 'private'] as const),
   S3_BUCKET_FORCE_PATH_STYLE: Env.schema.boolean(),
   S3_SOFTWARE_PREFIX: Env.schema.string.optional(),
+  S3_ACCOUNTS_PREFIX: Env.schema.string.optional(),
 })

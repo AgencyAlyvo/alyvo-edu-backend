@@ -20,6 +20,14 @@ export default class ManagedAccountTransformer extends BaseTransformer<ManagedAc
       schoolEmail: this.resource.schoolEmail,
       cursorPassword: this.resource.cursorPassword,
       studentId: this.resource.studentId,
+      mybcScreenshotHomeKey: this.resource.mybcScreenshotHomeKey,
+      mybcScreenshotProspectKey: this.resource.mybcScreenshotProspectKey,
+      mybcScreenshotRegistrationKey: this.resource.mybcScreenshotRegistrationKey,
+      hasMybcScreenshots: !!(
+        this.resource.mybcScreenshotHomeKey
+        && this.resource.mybcScreenshotProspectKey
+        && this.resource.mybcScreenshotRegistrationKey
+      ),
       schoolEmailPassword: this.resource.schoolEmailPassword,
       schoolEmailActivated: this.resource.schoolEmailActivated,
       schoolRequestSent: this.resource.schoolRequestSent,

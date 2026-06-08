@@ -54,6 +54,24 @@ const routes = {
     tokens: [{"old":"/accounts/:id","type":0,"val":"accounts","end":""},{"old":"/accounts/:id","type":1,"val":"id","end":""}],
     types: placeholder as Registry['managed_accounts.update']['types'],
   },
+  'managed_accounts.upload_mybc_screenshots': {
+    methods: ["POST"],
+    pattern: '/accounts/:id/mybc-screenshots',
+    tokens: [{"old":"/accounts/:id/mybc-screenshots","type":0,"val":"accounts","end":""},{"old":"/accounts/:id/mybc-screenshots","type":1,"val":"id","end":""},{"old":"/accounts/:id/mybc-screenshots","type":0,"val":"mybc-screenshots","end":""}],
+    types: placeholder as Registry['managed_accounts.upload_mybc_screenshots']['types'],
+  },
+  'managed_accounts.download_mybc_screenshot': {
+    methods: ["GET","HEAD"],
+    pattern: '/accounts/:id/mybc-screenshots/:kind',
+    tokens: [{"old":"/accounts/:id/mybc-screenshots/:kind","type":0,"val":"accounts","end":""},{"old":"/accounts/:id/mybc-screenshots/:kind","type":1,"val":"id","end":""},{"old":"/accounts/:id/mybc-screenshots/:kind","type":0,"val":"mybc-screenshots","end":""},{"old":"/accounts/:id/mybc-screenshots/:kind","type":1,"val":"kind","end":""}],
+    types: placeholder as Registry['managed_accounts.download_mybc_screenshot']['types'],
+  },
+  'managed_accounts.delete_mybc_screenshot': {
+    methods: ["DELETE"],
+    pattern: '/accounts/:id/mybc-screenshots/:kind',
+    tokens: [{"old":"/accounts/:id/mybc-screenshots/:kind","type":0,"val":"accounts","end":""},{"old":"/accounts/:id/mybc-screenshots/:kind","type":1,"val":"id","end":""},{"old":"/accounts/:id/mybc-screenshots/:kind","type":0,"val":"mybc-screenshots","end":""},{"old":"/accounts/:id/mybc-screenshots/:kind","type":1,"val":"kind","end":""}],
+    types: placeholder as Registry['managed_accounts.delete_mybc_screenshot']['types'],
+  },
   'managed_accounts.destroy': {
     methods: ["DELETE"],
     pattern: '/accounts/:id',

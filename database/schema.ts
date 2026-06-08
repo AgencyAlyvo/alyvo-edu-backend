@@ -33,7 +33,7 @@ export class AuthAccessTokenSchema extends BaseModel {
 }
 
 export class ManagedAccountSchema extends BaseModel {
-  static $columns = ['adminUserId', 'birthday', 'createdAt', 'cursorAccountActivated', 'cursorAccountActivatedAt', 'cursorPassword', 'cursorSheeridRequestSent', 'cursorSheeridRequestSentAt', 'id', 'outlookEmail', 'outlookEmailPassword', 'outlookFirstName', 'outlookLastName', 'schoolEmail', 'schoolEmailActivated', 'schoolEmailActivatedAt', 'schoolEmailPassword', 'schoolRequestSent', 'schoolRequestSentAt', 'studentId', 'updatedAt'] as const
+  static $columns = ['adminUserId', 'birthday', 'createdAt', 'cursorAccountActivated', 'cursorAccountActivatedAt', 'cursorPassword', 'cursorSheeridRequestSent', 'cursorSheeridRequestSentAt', 'id', 'mybcScreenshotHomeKey', 'mybcScreenshotProspectKey', 'mybcScreenshotRegistrationKey', 'outlookEmail', 'outlookEmailPassword', 'outlookFirstName', 'outlookLastName', 'schoolEmail', 'schoolEmailActivated', 'schoolEmailActivatedAt', 'schoolEmailPassword', 'schoolRequestSent', 'schoolRequestSentAt', 'studentId', 'updatedAt'] as const
   $columns = ManagedAccountSchema.$columns
   @column()
   declare adminUserId: number
@@ -53,6 +53,12 @@ export class ManagedAccountSchema extends BaseModel {
   declare cursorSheeridRequestSentAt: DateTime | null
   @column({ isPrimary: true })
   declare id: number
+  @column()
+  declare mybcScreenshotHomeKey: string | null
+  @column()
+  declare mybcScreenshotProspectKey: string | null
+  @column()
+  declare mybcScreenshotRegistrationKey: string | null
   @column()
   declare outlookEmail: string | null
   @column()

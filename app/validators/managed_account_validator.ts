@@ -50,6 +50,12 @@ export const createManagedAccountValidator = vine.create({
   cursorSheeridRequestSentAt: optionalDateTimeRule,
 })
 
+export const uploadMybcScreenshotsValidator = vine.create({
+  studentHomeBase64: vine.string().trim().minLength(64).maxLength(20_000_000),
+  prospectMenuBase64: vine.string().trim().minLength(64).maxLength(20_000_000),
+  registrationStatusBase64: vine.string().trim().minLength(64).maxLength(20_000_000),
+})
+
 export const updateManagedAccountValidator = vine.create({
   outlookEmail: optionalOutlookEmailRule,
   outlookFirstName: optionalOutlookNameRule,

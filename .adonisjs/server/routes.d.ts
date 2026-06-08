@@ -12,6 +12,9 @@ export type ScannedRoutes = {
     'managed_accounts.store': { paramsTuple?: []; params?: {} }
     'managed_accounts.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'managed_accounts.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'managed_accounts.upload_mybc_screenshots': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'managed_accounts.download_mybc_screenshot': { paramsTuple: [ParamValue,ParamValue]; params: {'id': ParamValue,'kind': ParamValue} }
+    'managed_accounts.delete_mybc_screenshot': { paramsTuple: [ParamValue,ParamValue]; params: {'id': ParamValue,'kind': ParamValue} }
     'managed_accounts.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'software.updater_manifest': { paramsTuple: [ParamValue,ParamValue,ParamValue]; params: {'target': ParamValue,'arch': ParamValue,'currentVersion': ParamValue} }
     'software.download': { paramsTuple: [ParamValue]; params: {'nameBundle': ParamValue} }
@@ -20,6 +23,7 @@ export type ScannedRoutes = {
     'health': { paramsTuple?: []; params?: {} }
     'managed_accounts.index': { paramsTuple?: []; params?: {} }
     'managed_accounts.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'managed_accounts.download_mybc_screenshot': { paramsTuple: [ParamValue,ParamValue]; params: {'id': ParamValue,'kind': ParamValue} }
     'software.updater_manifest': { paramsTuple: [ParamValue,ParamValue,ParamValue]; params: {'target': ParamValue,'arch': ParamValue,'currentVersion': ParamValue} }
     'software.download': { paramsTuple: [ParamValue]; params: {'nameBundle': ParamValue} }
   }
@@ -27,6 +31,7 @@ export type ScannedRoutes = {
     'health': { paramsTuple?: []; params?: {} }
     'managed_accounts.index': { paramsTuple?: []; params?: {} }
     'managed_accounts.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'managed_accounts.download_mybc_screenshot': { paramsTuple: [ParamValue,ParamValue]; params: {'id': ParamValue,'kind': ParamValue} }
     'software.updater_manifest': { paramsTuple: [ParamValue,ParamValue,ParamValue]; params: {'target': ParamValue,'arch': ParamValue,'currentVersion': ParamValue} }
     'software.download': { paramsTuple: [ParamValue]; params: {'nameBundle': ParamValue} }
   }
@@ -34,9 +39,11 @@ export type ScannedRoutes = {
     'auth.sign_in': { paramsTuple?: []; params?: {} }
     'auth.sign_up': { paramsTuple?: []; params?: {} }
     'managed_accounts.store': { paramsTuple?: []; params?: {} }
+    'managed_accounts.upload_mybc_screenshots': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   DELETE: {
     'auth.logout': { paramsTuple?: []; params?: {} }
+    'managed_accounts.delete_mybc_screenshot': { paramsTuple: [ParamValue,ParamValue]; params: {'id': ParamValue,'kind': ParamValue} }
     'managed_accounts.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   PATCH: {
