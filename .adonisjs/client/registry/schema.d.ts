@@ -103,6 +103,42 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['update']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
+  'managed_accounts.upload_mybc_screenshots': {
+    methods: ["POST"]
+    pattern: '/accounts/:id/mybc-screenshots'
+    types: {
+      body: ExtractBody<InferInput<(typeof import('#validators/managed_account_validator').uploadMybcScreenshotsValidator)>>
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: ExtractQuery<InferInput<(typeof import('#validators/managed_account_validator').uploadMybcScreenshotsValidator)>>
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['uploadMybcScreenshots']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['uploadMybcScreenshots']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
+  'managed_accounts.download_mybc_screenshot': {
+    methods: ["GET","HEAD"]
+    pattern: '/accounts/:id/mybc-screenshots/:kind'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue, ParamValue]
+      params: { id: ParamValue; kind: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['downloadMybcScreenshot']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['downloadMybcScreenshot']>>>
+    }
+  }
+  'managed_accounts.delete_mybc_screenshot': {
+    methods: ["DELETE"]
+    pattern: '/accounts/:id/mybc-screenshots/:kind'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue, ParamValue]
+      params: { id: ParamValue; kind: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['deleteMybcScreenshot']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/managed_accounts_controller').default['deleteMybcScreenshot']>>>
+    }
+  }
   'managed_accounts.destroy': {
     methods: ["DELETE"]
     pattern: '/accounts/:id'

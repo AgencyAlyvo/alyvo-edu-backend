@@ -1,7 +1,9 @@
+import { resolveMybcScreenshotKey, type MybcScreenshotKind } from '#constants/account_storage'
 import AccountEmailConflictException from '#exceptions/account_email_conflict_exception'
 import AccountOutlookNameConflictException from '#exceptions/account_outlook_name_conflict_exception'
 import NotFoundException from '#exceptions/not_found_exception'
 import ManagedAccount from '#models/managed_account'
+import ManagedAccountStorageS3Service from '#services/managed_account_storage_s3_service'
 import type User from '#models/user'
 import type { CreateManagedAccountPayload } from '#types/payload/create_managed_account_payload'
 import type { UpdateManagedAccountPayload } from '#types/payload/update_managed_account_payload'
@@ -193,6 +195,68 @@ export default class ManagedAccountService {
       this.rethrowUniqueViolation(error)
       throw error
     }
+
+    return account
+  }
+
+  /**
+   * Enregistre les captures myBC (Student Home, My Details, Registration Status) sur S3.
+   */
+  public static async storeMybcScreenshots(
+    auth: HttpContext['auth'],
+    id: number,
+    studentHome: Buffer,
+    prospectMenu: Buffer,
+    registrationStatus: Buffer,
+  ): Promise<ManagedAccount> {
+    const account: ManagedAccount = await this.findForAdmin(auth, id)
+    const homeKey: string = resolveMybcScreenshotKey(account.id, 'student-home')
+    const prospectKey: string = resolveMybcScreenshotKey(account.id, 'prospect-menu')
+    const registrationKey: string = resolveMybcScreenshotKey(account.id, 'registration-status')
+
+    await ManagedAccountStorageS3Service.putBuffer(homeKey, studentHome, 'image/png')
+    await ManagedAccountStorageS3Service.putBuffer(prospectKey, prospectMenu, 'image/png')
+    await ManagedAccountStorageS3Service.putBuffer(registrationKey, registrationStatus, 'image/png')
+
+    account.mybcScreenshotHomeKey = homeKey
+    account.mybcScreenshotProspectKey = prospectKey
+    account.mybcScreenshotRegistrationKey = registrationKey
+    await account.save()
+
+    return account
+  }
+
+  /**
+   * Supprime une capture myBC (S3 + cle en base).
+   */
+  public static async deleteMybcScreenshot(
+    auth: HttpContext['auth'],
+    id: number,
+    kind: MybcScreenshotKind,
+  ): Promise<ManagedAccount> {
+    const account: ManagedAccount = await this.findForAdmin(auth, id)
+    const keyByKind: Record<MybcScreenshotKind, string | null> = {
+      'student-home': account.mybcScreenshotHomeKey,
+      'prospect-menu': account.mybcScreenshotProspectKey,
+      'registration-status': account.mybcScreenshotRegistrationKey,
+    }
+    const key: string | null = keyByKind[kind]
+
+    if (!key) {
+      throw new NotFoundException('Screenshot not found for this account')
+    }
+
+    await ManagedAccountStorageS3Service.deleteIfExists(key)
+
+    if (kind === 'student-home') {
+      account.mybcScreenshotHomeKey = null
+    } else if (kind === 'prospect-menu') {
+      account.mybcScreenshotProspectKey = null
+    } else {
+      account.mybcScreenshotRegistrationKey = null
+    }
+
+    await account.save()
 
     return account
   }
