@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.5](https://github.com/AgencyAlyvo/alyvo-edu-backend/compare/v1.0.4...v1.0.5) (2026-06-08)
+
+
+### Bug Fixes
+
+* fixed xx ([4c86a91](https://github.com/AgencyAlyvo/alyvo-edu-backend/commit/4c86a915c0b449a9e679969d045fef6e6d422d27))
+* szds ([e8d42a4](https://github.com/AgencyAlyvo/alyvo-edu-backend/commit/e8d42a46af4dd0c71654e11f962301439542b557))
+
 ## [1.0.4](https://github.com/AgencyAlyvo/alyvo-edu-backend/compare/v1.0.3...v1.0.4) (2026-06-07)
 
 ### Bug Fixes
