@@ -107,11 +107,7 @@ export default class ManagedAccountsController {
       throw new BadRequestException('Invalid base64 screenshot payload')
     }
 
-    if (
-      studentHomeBuffer.length === 0
-      || prospectMenuBuffer.length === 0
-      || registrationStatusBuffer.length === 0
-    ) {
+    if (studentHomeBuffer.length === 0 || prospectMenuBuffer.length === 0 || registrationStatusBuffer.length === 0) {
       throw new BadRequestException('Screenshot payloads cannot be empty')
     }
 
@@ -133,11 +129,7 @@ export default class ManagedAccountsController {
   public async downloadMybcScreenshot(ctx: HttpContext): Promise<void> {
     const { params, auth } = ctx
     const kind: string = String(params.kind || '')
-    const allowedKinds: MybcScreenshotKind[] = [
-      'student-home',
-      'prospect-menu',
-      'registration-status',
-    ]
+    const allowedKinds: MybcScreenshotKind[] = ['student-home', 'prospect-menu', 'registration-status']
 
     if (!allowedKinds.includes(kind as MybcScreenshotKind)) {
       throw new BadRequestException('Invalid screenshot kind')
@@ -175,11 +167,7 @@ export default class ManagedAccountsController {
     serialize,
   }: HttpContext): Promise<{ data: ManagedAccountResponse }> {
     const kind: string = String(params.kind || '')
-    const allowedKinds: MybcScreenshotKind[] = [
-      'student-home',
-      'prospect-menu',
-      'registration-status',
-    ]
+    const allowedKinds: MybcScreenshotKind[] = ['student-home', 'prospect-menu', 'registration-status']
 
     if (!allowedKinds.includes(kind as MybcScreenshotKind)) {
       throw new BadRequestException('Invalid screenshot kind')

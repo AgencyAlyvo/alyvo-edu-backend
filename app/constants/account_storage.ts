@@ -7,6 +7,9 @@ const ACCOUNT_STORAGE_PREFIX_BY_NODE_ENV: Record<string, string> = {
   test: 'edu/dev/accounts',
 }
 
+/**
+ * Types de captures myBC.
+ */
 export type MybcScreenshotKind = 'student-home' | 'prospect-menu' | 'registration-status'
 
 /**
