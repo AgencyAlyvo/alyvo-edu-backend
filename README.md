@@ -41,7 +41,7 @@ On utilise la convention SemVer : https://semver.org/lang/fr/ <br /><br />
 Pour une Release classique : MAJOR.MINOR.PATCH <br />
 Pour une Pre-Release, exemples : MAJOR.MINOR.PATCH-rc.0 OR MAJOR.MINOR.PATCH-beta.3 <br /><br />
 
-Nous utilison release-please de Google pour versionner, via Github Actions. <br />
+Nous utilison release-please de Google pour versionner, via Github Actions <br />
 Pour que cela sois pris en compte il faut utiliser les conventionnal commits : https://www.conventionalcommits.org/en/v1.0.0/ <br />
 Release Please crée une demande d'extraction de version après avoir remarqué que la branche par défaut contient des « unités publiables » depuis la dernière version. Une unité publiable est un commit sur la branche avec l'un des préfixes suivants : `feat` / `feat!` et `fix` / `fix!`. <br /><br />
 
