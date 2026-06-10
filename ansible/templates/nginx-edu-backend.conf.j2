@@ -32,7 +32,7 @@ server {
     access_log {{ app_dir }}/logs/nginx-access.log;
     error_log {{ app_dir }}/logs/nginx-error.log;
 
-    client_max_body_size 50M;
+    client_max_body_size 80M;
 
     location / {
         proxy_pass http://127.0.0.1:{{ app_port }}/;
@@ -70,7 +70,7 @@ server {
     access_log {{ app_dir }}/logs/nginx-access.log;
     error_log {{ app_dir }}/logs/nginx-error.log;
 
-    client_max_body_size 50M;
+    client_max_body_size 80M;
 
     location / {
         proxy_pass http://127.0.0.1:{{ app_port }}/;

@@ -33,6 +33,11 @@ const bodyParserConfig = defineConfig({
     convertEmptyStringsToNull: true,
 
     /**
+     * Captures myBC (3 PNG base64) depassent la limite par defaut (1mb).
+     */
+    limit: '80mb',
+
+    /**
      * Content types handled by the JSON parser.
      */
     types: ['application/json', 'application/json-patch+json', 'application/vnd.api+json', 'application/csp-report'],
