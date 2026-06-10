@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/AgencyAlyvo/alyvo-edu-backend/compare/v1.0.5...v1.0.6) (2026-06-10)
+
+
+### Bug Fixes
+
+* fx ([5d528ee](https://github.com/AgencyAlyvo/alyvo-edu-backend/commit/5d528ee17ba7273028cf19b8c1e95a6a12e88833))
+
 ## [1.0.5](https://github.com/AgencyAlyvo/alyvo-edu-backend/compare/v1.0.4...v1.0.5) (2026-06-08)
 
 
