@@ -155,6 +155,13 @@ export default class ManagedAccountService {
     if (payload.schoolEmailActivated !== undefined) {
       account.schoolEmailActivated = payload.schoolEmailActivated
     }
+
+    const schoolDeactivated: boolean = previousSchoolActivated && !account.schoolEmailActivated
+    if (schoolDeactivated) {
+      account.schoolEmail = null
+      account.studentId = null
+    }
+
     if (payload.schoolRequestSent !== undefined) {
       account.schoolRequestSent = payload.schoolRequestSent
     }
